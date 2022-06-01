@@ -50,8 +50,6 @@ for (int i = 0; i < 4; i++) // array.GetLength(0)
     {
         Console.WriteLine("Введите координату:");
         array[i,j] = double.Parse(Console.ReadLine()?? "0");
-        //Console.WriteLine("Введите координату y:");
-        //array[i,j] = double.Parse(Console.ReadLine()?? "0");
     }
     
 }
@@ -81,3 +79,33 @@ for (int i = 0; i < newArray.GetLength(0); i++)
     }
     Console.WriteLine();
 }   
+
+
+
+// Вариант 3 (на основе Лекции №6 Сергея Камянецкого)
+
+
+/*using System.Linq;
+Console.Clear();
+string coordinates = "(0,0) (2,0) (2,2) (0,2)"
+       .Replace("(","") // заменяем "(" на пустую строку "" 
+       .Replace(")","")
+       ;
+
+Console.WriteLine("Координаты до масштабирования:");
+Console.WriteLine("(0,0) (2,0) (2,2) (0,2)");
+Console.WriteLine();
+
+Console.WriteLine("Координыты после масштабирования:");
+int scalingFactor = 2;//коэффициент масштабирования
+
+var arrayOfCoordinates = coordinates.Split(" ")
+                    .Select(item => item.Split(','))
+                    .Select(e => (x: int.Parse(e[0]), y: int.Parse(e[1]))) // массив кортежей
+                    .ToArray();
+for (int i = 0; i < arrayOfCoordinates.Length; i++)
+{
+    Console.Write($"({arrayOfCoordinates[i].x * scalingFactor},{arrayOfCoordinates[i].y * scalingFactor}) ");// при выводе координаты уже числа
+   
+}
+Console.WriteLine();*/
