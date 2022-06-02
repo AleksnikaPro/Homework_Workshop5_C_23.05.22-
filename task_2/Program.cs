@@ -41,7 +41,7 @@ Console.WriteLine($"Координаты масштабированной фиг
 
 Console.Clear();
 Console.WriteLine("Давайте масштабируем четырехугольник!");
-Console.Write("Введите коэффициент маштабирования k: ");
+Console.Write("Введите коэффициент масштабирования k: ");
 double k = double.Parse(Console.ReadLine()?? "0");
 Console.WriteLine();
 
