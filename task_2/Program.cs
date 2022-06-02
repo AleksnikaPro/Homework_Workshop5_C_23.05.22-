@@ -39,47 +39,43 @@ Console.WriteLine($"Координаты масштабированной фиг
 
 // Вариант 2
 
-Console.WriteLine("Давайте масштабируем фигуру!");
-Console.WriteLine("Введите коэффициент маштабирования k: ");
+Console.Clear();
+Console.WriteLine("Давайте масштабируем четырехугольник!");
+Console.Write("Введите коэффициент маштабирования k: ");
 double k = double.Parse(Console.ReadLine()?? "0");
+Console.WriteLine();
 
-double[,] array = new double [4,2]; // на каждой строке по две координаты Х и У.
-for (int i = 0; i < 4; i++) // array.GetLength(0)
+double[,] array = new double[4,2]; 
+for (int i = 0; i < 4; i++)
 {
-    for (int j = 0; j < 2; j++) //array.GetLength(1)
-    {
-        Console.WriteLine("Введите координату:");
-        array[i,j] = double.Parse(Console.ReadLine()?? "0");
-    }
+    Console.Write($"Введите координату x{i + 1}: ");
+    array[i,0] = double.Parse(Console.ReadLine()?? "0");
+    Console.Write($"Введите координату y{i + 1}: ");
+    array[i,1] = double.Parse(Console.ReadLine()?? "0");
     
 }
+
 Console.WriteLine();
 Console.WriteLine("Координаты до масштабирования:");
 double[,] newArray = new double [4,2];
-for (int i = 0; i < array.GetLength(0); i++) // 4
-{
-    for (int j = 0; j < array.GetLength(1); j++) // 2
-    {
-      
-        newArray[i,j] = array[i,j];
-        Console.Write($"{array[i,j]} ");  
-    }
+for (int i = 0; i < 4; i++) 
+{  
+        newArray[i,0] = array[i,0] ;
+        newArray[i,1] = array[i,1] ;
+        Console.Write($"x{i+1}: {newArray[i,0]}, y{i+1}: {newArray[i,1]} ");
+        Console.WriteLine();
+}
+
+Console.WriteLine();
+Console.WriteLine("Координаты после масштабирования:");
+double[,] scalingArray = new double [4,2];
+for (int i = 0; i < 4; i++) 
+{  
+    scalingArray[i,0] = newArray[i,0] * k;
+    scalingArray[i,1] = newArray[i,1] * k;
+    Console.Write($"x{i+1}: {scalingArray[i,0]}, y{i+1}: {scalingArray[i,1]} ");   
     Console.WriteLine();
 }
-Console.WriteLine();
-Console.WriteLine($"Координаты после масштабирования (коэффициент масштабирования = {k}):");
-double[,] scalingArray = new double [4,2];
-for (int i = 0; i < newArray.GetLength(0); i++)
-{
-    for (int j = 0; j < newArray.GetLength(1); j++)
-    {
-        scalingArray[i,j] = newArray[i,j] * k;
-        Console.Write($"{scalingArray[i,j]}  ");
-       
-    }
-    Console.WriteLine();
-}   
-
 
 
 // Вариант 3 (на основе Лекции №6 Сергея Камянецкого)
